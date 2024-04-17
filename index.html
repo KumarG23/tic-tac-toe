@@ -10,10 +10,24 @@
     <!-- project styles -->
     <link rel="stylesheet" href="./css/style.css">
   </head>
-  <body class="bg-primary">
-    <div id="app">
+  <body>
+    <div id="gameContainer">
       <h1>Tic Tac Toe</h1>
+      <div id="board">
+        <div squareIndex="0" class="square"></div>
+        <div squareIndex="1" class="square"></div>
+        <div squareIndex="2" class="square"></div>
+        <div squareIndex="3" class="square"></div>
+        <div squareIndex="4" class="square"></div>
+        <div squareIndex="5" class="square"></div>
+        <div squareIndex="6" class="square"></div>
+        <div squareIndex="7" class="square"></div>
+        <div squareIndex="8" class="square"></div>
+      </div>
+      <h2 id="statText"></h2>
+      <button id="restartBtn">Restart</button>
     </div>
+
 
     <!-- BootStrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
