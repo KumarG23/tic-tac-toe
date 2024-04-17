@@ -26,29 +26,53 @@ function initializeGame(){
     restartBtn.addEventListener("click", restartGame);
 
     statText.textContent = `${currentPlayer}'s turn`;
+
+    gameRunning = true;
 }
 
 function squareClicked(){
     let squareIndex = this.getAttribute("squareIndex");
 
-    if(options[squareIndex] != "" || !running){
+    if(options[squareIndex] != "" || !gameRunning){
         return;
     }
+
+    updateSquare(this, squareIndex);
+    checkWin();
 }
 
 function updateSquare(square, index){
-
+    options[index] = currentPlayer;
+    square.textContent = currentPlayer;
 }
 
 function changePlayer(){
+    currentPlayer = (currentPlayer === "X") ? "O" : "X";
 
+    statText.textContent = `${currentPlayer}'s turn`;
 }
 
 function checkWin(){
+    let winner = false;
 
+    for(let i = 0; i < winConditions.length; i++){
+        let condition = winConditions[i];
+        let squareA = options[condition[0]];
+        let squareB = options[condition[1]];
+        let squareC = options[condition[2]];
+
+        if (squareA === "" || squareB === "" || squareC === ""){
+            continue;
+        }
+        if (squareA === squareB && squareB === squareC)
+        winner = true;
+        break;
+    }
 }
 
 function restartGame(){
+    statText.textContent = `${currentPlayer} wins!`;
 
+    
 }
 

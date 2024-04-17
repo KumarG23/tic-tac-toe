@@ -1,12 +1,65 @@
+h1 {
+  background: -webkit-linear-gradient(45deg,#ff3877, #1affa7);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: transparent;
+}
+
+
+
 .square {
   width: 75px;
   height: 75px;
-  border: 2px solid;
-  box-shadow: 0 0 0 2px;
+  border: 2px solid #1affa7;
   line-height: 75px;
   font-size: 75px;
   cursor: pointer;
 }
+
+
+
+.square:hover {
+  animation: pulse 2s infinite;
+}
+
+#square0, #square1, #square2 {
+  border-top: none;
+}
+
+#square0, #square3, #square6 {
+  border-left: none;
+}
+
+#square6, #square7, #square8 {
+  border-bottom: none;
+}
+
+#square2, #square5, #square8 {
+  border-right: none;
+}
+
+h2 {
+  background: -webkit-linear-gradient(45deg,#ff3877, #1affa7);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: transparent;
+}
+
+button {
+  background-color: #1affa7;
+}
+
+button:hover {
+  background-color: #ff3877;
+  transform: translateY(8px);
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
+  50% { box-shadow: 0 0 25px 15px rgba(0, 242, 255, 0.7); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 0, 217, 0.7); }
+}
+
 
 #gameContainer {
   margin-top: 20%;
@@ -14,6 +67,10 @@
   /*
   add in fonts styles
   */
+}
+
+#gameContainer:hover {
+  border-color: #ff3877;
 }
 
 #board {
