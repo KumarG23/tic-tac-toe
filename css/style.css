@@ -3,6 +3,7 @@ body {
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
   height: 100vh; /* Set height to full viewport height */
+  width: 100vw;
   text-align: center;
 }
 
@@ -10,7 +11,7 @@ body {
   position: relative;
   width: 425px;
   padding: 20px 45px;
-  box-shadow: 0px 0px 10px 10px #ff3877;
+  /*box-shadow: 0px 0px 10px 10px #ff38779f; */
   border-radius: 10%;
   display: flex;
   justify-content: center;
@@ -64,6 +65,12 @@ h1 {
 
 #square0, #square1, #square2 {
   border-top: none;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  text-align: center;
+  padding-right: 1px;
+  padding-top: 4px;
 }
 
 #square0, #square3, #square6 {
@@ -76,6 +83,13 @@ h1 {
 
 #square2, #square5, #square8 {
   border-right: none;
+}
+
+#square0,#square1, #square2, #square3, #square4, #square5, #square6, #square7, #square8 {
+  display: flex;
+  justify-content: end;
+  padding-right: 1.5px;
+  padding-top: 2.5px;
 }
 
 h2 {
@@ -119,6 +133,8 @@ button:hover {
   grid-template-columns: repeat(3, auto);
   width: 225px;
   margin: auto;
+  justify-content: center;
+  text-align: center;
 }
 
 audio {

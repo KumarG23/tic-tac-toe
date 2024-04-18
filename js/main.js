@@ -76,7 +76,7 @@ function squareClicked(){// function for when square is clicked
 function updateSquare(square, index){ // function to update state of game board
     options[index] = currentPlayer; // update options array with current players symbol
     square.textContent = currentPlayer; // display current players symbol in the square
-    square.classList.add(currentPlayer);
+    square.classList.add('currentPlayer');
     localStorage.setItem('board', JSON.stringify(options))
     //console.log(options);
     localStorage.setItem('player', JSON.stringify(currentPlayer));
