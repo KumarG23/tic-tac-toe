@@ -90,7 +90,7 @@ function restartGame(){ // function to restart game
     options = ["", "", "", "", "", "", "", "", ""]; // set options array back to empty
     statText.textContent = `${currentPlayer}'s turn`; // display current players turn
     square.forEach(square => square.textContent = ""); // set each square back to empty
-    gameRunning = true; // turn game back to true
+    gameRunning = true; // turn game back to trueeee
     
 }
 
