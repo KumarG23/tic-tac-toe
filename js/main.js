@@ -64,15 +64,31 @@ function checkWin(){
         if (squareA === "" || squareB === "" || squareC === ""){
             continue;
         }
-        if (squareA === squareB && squareB === squareC)
+        if (squareA === squareB && squareB === squareC){
         winner = true;
         break;
+        }
+    }
+
+    if(winner){
+        statText.textContent = `${currentPlayer} Wins!`;
+        gameRunning = false;
+    }
+    else if (!options.includes("")){
+        statText.textContent = "Cat! (Draw)";
+        gameRunning = false;
+    }
+    else {
+        changePlayer();
     }
 }
 
 function restartGame(){
-    statText.textContent = `${currentPlayer} wins!`;
-
+    currentPlayer = "X";
+    options = ["", "", "", "", "", "", "", "", ""];
+    statText.textContent = `${currentPlayer}'s turn`;
+    square.forEach(square => square.textContent = "");
+    gameRunning = true;
     
 }
 
