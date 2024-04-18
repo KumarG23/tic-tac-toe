@@ -6,6 +6,34 @@ body {
   text-align: center;
 }
 
+#fullContainer {
+  position: relative;
+  width: 425px;
+  padding: 20px 45px;
+  box-shadow: 0px 0px 10px 10px #ff3877;
+  border-radius: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1;
+}
+
+ /* #fullContainer::before{
+  content: "";
+  position: absolute;
+  background: linear-gradient(45deg, #1affa7, #05a2f1, #ff3877);
+  background-size: 200%, 200%;
+  top: -5px;
+  right: -5px;
+  left: -5px;
+  bottom: -5px;
+  z-index: -1;
+  filter: blur(40px);
+  animation: glowing 5s infinite;
+}  */
+
+
 h1 {
   background: -webkit-linear-gradient(45deg,#ff3877, #1affa7);
   -webkit-text-fill-color: transparent;
@@ -17,6 +45,9 @@ h1 {
 
 
 .square {
+  display: flex;
+  justify-content: center;
+  text-align: center;
   width: 75px;
   height: 75px;
   border: 2px solid #1affa7;
@@ -92,4 +123,16 @@ button:hover {
 
 audio {
   display: none;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 50% 0;
+  }
 }
