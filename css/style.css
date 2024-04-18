@@ -1,8 +1,17 @@
+body {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Set height to full viewport height */
+  text-align: center;
+}
+
 h1 {
   background: -webkit-linear-gradient(45deg,#ff3877, #1affa7);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: transparent;
+  margin-bottom: 25px;
 }
 
 
@@ -12,10 +21,10 @@ h1 {
   height: 75px;
   border: 2px solid #1affa7;
   line-height: 75px;
-  font-size: 75px;
+  font-size: 60px;
   cursor: pointer;
+ color: #ff3877;
 }
-
 
 
 .square:hover {
@@ -43,10 +52,12 @@ h2 {
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: transparent;
+  margin-top: 25px;
 }
 
 button {
   background-color: #1affa7;
+  margin-top: 15px;
 }
 
 button:hover {
@@ -62,11 +73,10 @@ button:hover {
 
 
 #gameContainer {
-  margin-top: 20%;
   text-align: center;
-  /*
-  add in fonts styles
-  */
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }
 
 #gameContainer:hover {
