@@ -1,7 +1,8 @@
-const square = document.querySelectorAll(".square");
+const square = document.querySelectorAll(".square"); // query all squares
 const statText = document.querySelector("#statText");
 const restartBtn = document.querySelector("#restartBtn");
 const winConditions = [
+    // array defining win conditions
     [0,1,2],
     [3,4,5],
     [6,7,8],
@@ -11,84 +12,84 @@ const winConditions = [
     [0,4,8],
     [2,4,6],
 ];
-
+// array to store current state of the game board
 let options = ["", "", "", "", "", "", "", "", ""];
-
+// keep track of current player "X" or "O"
 let currentPlayer = "X";
-
+// keep track if game is running or not
 let gameRunning = false;
 
 initializeGame();
 
 function initializeGame(){
-    square.forEach(square => square.addEventListener("click", squareClicked))
+    square.forEach(square => square.addEventListener("click", squareClicked))// add event listener to each square
 
-    restartBtn.addEventListener("click", restartGame);
+    restartBtn.addEventListener("click", restartGame);// add event listener to restart button
 
-    statText.textContent = `${currentPlayer}'s turn`;
+    statText.textContent = `${currentPlayer}'s turn`;// display current players turn
 
-    gameRunning = true;
+    gameRunning = true;// change game running to true
 }
 
-function squareClicked(){
-    let squareIndex = this.getAttribute("squareIndex");
+function squareClicked(){// function for when square is clicked
+    let squareIndex = this.getAttribute("squareIndex");// get index of clicked square
 
-    if(options[squareIndex] != "" || !gameRunning){
-        return;
+    if(options[squareIndex] != "" || !gameRunning){// check if square is already occupied or the game isn't running
+        return; // return nothing
     }
 
-    updateSquare(this, squareIndex);
-    checkWin();
+    updateSquare(this, squareIndex); // update square with current players symbol
+    checkWin(); //check for win or draw
 }
 
-function updateSquare(square, index){
-    options[index] = currentPlayer;
-    square.textContent = currentPlayer;
+function updateSquare(square, index){ // function to update state of game board
+    options[index] = currentPlayer; // update options array with current players symbol
+    square.textContent = currentPlayer; // display current players symbol in the square
 }
 
-function changePlayer(){
-    currentPlayer = (currentPlayer === "X") ? "O" : "X";
+function changePlayer(){ // function to change player turn
+    currentPlayer = (currentPlayer === "X") ? "O" : "X"; // change current player to other player
 
-    statText.textContent = `${currentPlayer}'s turn`;
+    statText.textContent = `${currentPlayer}'s turn`; // display current players turn
 }
 
-function checkWin(){
-    let winner = false;
+function checkWin(){ // function to check for win or draw
+    let winner = false; // start with win or draw as false
 
-    for(let i = 0; i < winConditions.length; i++){
-        let condition = winConditions[i];
-        let squareA = options[condition[0]];
-        let squareB = options[condition[1]];
-        let squareC = options[condition[2]];
+    for(let i = 0; i < winConditions.length; i++){ // iterate through each win condition
+        let condition = winConditions[i]; // retrieves the current win conditions from win conditions array, each condition is 3 indices
+        let squareA = options[condition[0]]; // checks each square for a set of symbols with a winning condition in the array.
+        let squareB = options[condition[1]]; 
+        let squareC = options[condition[2]]; 
 
-        if (squareA === "" || squareB === "" || squareC === ""){
-            continue;
+        if (squareA === "" || squareB === "" || squareC === ""){ //if any of the winning conditions are not met and any squares are empty
+            continue; // then continue game
         }
-        if (squareA === squareB && squareB === squareC){
-        winner = true;
-        break;
+        if (squareA === squareB && squareB === squareC){ // if winning condition is met with 3 of the same symbols
+        winner = true; // then winner
+        break; // break the loop because there is a winner
         }
     }
 
     if(winner){
-        statText.textContent = `${currentPlayer} Wins!`;
-        gameRunning = false;
+        statText.textContent = `${currentPlayer} Wins!`; // display winner 
+        gameRunning = false; // set game running to false
     }
-    else if (!options.includes("")){
-        statText.textContent = "Cat! (Draw)";
-        gameRunning = false;
+    else if (!options.includes("")){ // if options does not include any spaces then its a draw
+        statText.textContent = "Cat! (Draw)"; // display text for draw
+        gameRunning = false; // stop game
     }
-    else {
+    else { // if no winner and there are still spaces change player
         changePlayer();
     }
 }
 
-function restartGame(){
-    currentPlayer = "X";
-    options = ["", "", "", "", "", "", "", "", ""];
-    statText.textContent = `${currentPlayer}'s turn`;
-    square.forEach(square => square.textContent = "");
-    gameRunning = true;
+function restartGame(){ // function to restart game
+    currentPlayer = "X"; // set the current player back to x
+    options = ["", "", "", "", "", "", "", "", ""]; // set options array back to empty
+    statText.textContent = `${currentPlayer}'s turn`; // display current players turn
+    square.forEach(square => square.textContent = ""); // set each square back to empty
+    gameRunning = true; // turn game back to true
     
 }
 
