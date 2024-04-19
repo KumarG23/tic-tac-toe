@@ -1,9 +1,13 @@
 const square = document.querySelectorAll(".square"); // query all squares
 const statText = document.querySelector("#statText");
 const restartBtn = document.querySelector("#restartBtn");
-let coinSound = document.querySelector("#coinSound");
+// let coinSound = document.querySelector("#coinSound");
 let winSound = document.querySelector('#winSound');
 let catSound = document.querySelector('#catSound');
+import coinSoundUrl from '../assets/mixkit-arcade-game-jump-coin-216.wav'
+let coinSound = document.createElement('audio');
+coinSound.src = coinSoundUrl;
+coinSound.preload = 'auto';
 
 let winConditions = [
     // array defining win conditions
